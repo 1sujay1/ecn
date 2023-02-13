@@ -7,6 +7,7 @@ db.mobile = require("./mobileOtpModel");
 db.email = require("./emailOtpModel");
 db.fcm = require('./fcmModel.js')
 db.reset= require('./passwordResetModel')
+db.hospital= require('./hospitalModel')
 
 
 

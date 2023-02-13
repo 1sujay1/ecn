@@ -16,6 +16,8 @@ const { validate } = require("../../middlewares/authorize");
  */
 
 const authController = require('../authController');
+const hospiController = require('../hospitalController');
+const commonController = require('../commonController')
 
 const { validateRefreshToken } = require('../../middlewares/loginUtils');
 var authorize = (schema, tokenVerify, role) => {
@@ -43,6 +45,16 @@ router.post('/changePass', authorize(null, false), authController.ChangePassword
 // book
 router.get("/",(req,res,next)=>{res.send("Its working Sujay")})
 
+/**
+ * Hospital APIS
+ */
+router.post('/hospital/create', authorize(null, true), hospiController.CreateHosp);
+router.post('/hospital/get', authorize(null, false), hospiController.GetHosp);
+router.post('/hospital/delete', authorize(null, false), hospiController.DeleteHosp);
+
+router.post('/masterData', authorize(null, false), commonController.masterData);
+
+router.post('/locationByPincode', authorize(null, false), commonController.locationByPincode);
 
 
 

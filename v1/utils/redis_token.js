@@ -9,9 +9,9 @@ const redisAndToken = async (user_id, device_id, ip, type) => {
     if (!pinged || pinged !== "PONG") {
         return REDIS_SERVER_NOT_CONNECTED;
     }
-
+    user_id=user_id.toString()
     let payload = { user_id, device_id, ip, type };
-
+    
     const accessToken = jwtHelper.signAccessToken(payload);
     const refreshToken = jwtHelper.signRefreshToken(payload);
     console.log("Token generated with the parameters", payload);
@@ -20,9 +20,12 @@ const redisAndToken = async (user_id, device_id, ip, type) => {
         accessToken,
         refreshToken
     }
+    console.log(tokens);
     const redisRespExists = await redisClient.exists(user_id);
+    console.log(redisRespExists);
     if (redisRespExists) {
         const tokenRes = await redisClient.get(user_id);
+        console.log(redisRespExists);
         const decodedTokens = async () => {
             try {
                 const data = jwtHelper.verifyRefreshToken(tokenRes);

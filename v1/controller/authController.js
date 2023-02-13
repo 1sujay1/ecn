@@ -273,7 +273,8 @@ const login = async (req, res, next, payload, tokenData) => {
 
         let data = { tokens }
         data.user = userData;
-        delete data.user.password;
+        if(data.user.password)delete data.user.password;
+        
         return FormatData(res, true, "Sign in successfull", [data])
     } catch (error) {
         console.log("Error", error.message);
@@ -284,6 +285,10 @@ const login = async (req, res, next, payload, tokenData) => {
 const VerifyOTP = async (req, res, next) => {
     try {
         const { email, mobile, otp, device_id, ip } = req.body;
+
+        if (!otp) {
+            return FormatData(res, false, "Please enter OTP")
+        }
 
         if (!device_id && !ip) {
             return FormatData(res, false, "device id or ip is undefined")
@@ -317,9 +322,13 @@ const VerifyOTP = async (req, res, next) => {
             if (!getResult.data.isVerified) {
                 await UpdateMobileOTP({ _id: getResult.data._id, isVerified: true })
             }
-            if (getResult.data.registerStatus !== "REGISTERED") {
-                return FormatData(res, true, "New User Mobile Registered")
+            let checkExists = await UserModel.findOne({mobile})
+            if(!checkExists){
+              let createuser =  await UserModel.create({mobile,mobileVerified:true,roles:["DOCTOR"]})
             }
+            // if (getResult.data.registerStatus !== "REGISTERED") {
+            //     return FormatData(res, true, "New User Mobile Registered")
+            // }
             return login(req, res, next, { mobile }, { device_id, ip })
         }
     } catch (error) {

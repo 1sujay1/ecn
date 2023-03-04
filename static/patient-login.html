@@ -1,0 +1,387 @@
+<!doctype html>
+<html lang="en">
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<head>
+        <meta charset="utf-8">
+
+    <link rel="shortcut icon" type="image/x-icon" href="images/upload/62ecb60b1086d.jpg">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="csrf-token" content="0u1XgVYh9zBz4LaZumvo879IkQZmvwDSK55LpnWQ">
+
+    <input type="hidden" name="base_url" value="https://emergencycarenetwork.in">
+
+    <title>Emergency Care Network | Patient Login</title>
+
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/intlTelInput.css" />
+<link rel="stylesheet" href="assets/css/boxicons.min.css">
+
+<link rel="stylesheet" href="assets/css/slick-theme.min.css" />
+
+<link rel="stylesheet" href="assets/css/slick.css" />
+
+<link rel="shortcut icon" type="image/x-icon" href="images/upload/62ecb60b1086d.jpg">
+
+<link rel="stylesheet" type="text/css" href="assets_admin/css/datatables.min.css" />
+
+<link rel="stylesheet" href="assets/plugins/fancybox/jquery.fancybox.min.css">
+
+<script type="text/javascript" src="assets_admin/js/sweetalert2%4010.js"></script>
+
+<link rel="stylesheet" href="assets/css/style.css">
+
+
+<input type="hidden" name="rtl_direction" class="rtl_direction" value="false">
+
+<style>
+    :root{
+        --site_color : #0099ff;
+        --site_color_hover : #0099ffe8;
+    }
+</style>
+<style>
+    .login_container {
+        min-height: 300px;
+        max-width: 500px;
+    }
+
+    .input-num {
+        padding-left: 84px;
+        width: 385px;
+        height: 52px;
+        margin-left: 100px;
+        border-radius: 5px;
+        border: 1px solid #6c757d;
+    }
+
+    .btn-otp {
+        margin-left: 100px;
+        width: 200px;
+        /* margin-top: -25px; */
+    }
+
+    #get_otp_btn {
+        margin-left: 70px;
+        width: 200px;
+        height: 50px;
+        border-radius: 30px;
+
+    }
+
+    .disable {
+        font-size: 13px;
+        color: rgba(2, 71, 91, 0.6);
+    }
+
+    .head_mob {
+        margin-left: 100px;
+    }
+
+    .login_container {
+        width: 70%;
+    }
+
+    .form-text {
+        margin-left: 14px;
+        font-size: 14px;
+        color: yellow
+    }
+
+    .iti--separate-dial-code .iti__selected-flag {
+        /* background-color: white; */
+        margin: 0.3px;
+        border-radius: 6px;
+    }
+
+    .form-control {
+        border-radius: 4px;
+
+    }
+
+    .login-logo {
+        height: 70px;
+        width: 150px;
+        margin-right: 10px;
+    }
+
+    .input[type=tel]:focus {
+        border: 2px solid blue;
+    }
+
+    /* responsive */
+    @media  screen and (max-width: 436px) {
+
+        #get_otp_btn {
+            padding: 2px 10px !important;
+            margin-top: -15px;
+
+        }
+
+        #get_otp_btn {
+            margin-left: 50px;
+            width: 200px;
+            height: 50px;
+            border-radius: 30px;
+
+        }
+
+        .number_code {
+            width: 20px;
+        }
+
+        .form-control {
+            width: 20px;
+        }
+
+        .btn-otp {
+            margin-right: 0px;
+            width: 50px;
+
+        }
+
+        .login_container {
+            width: 100%;
+        }
+
+        .form-text {
+            /* margin-left: 14px; */
+            font-size: 10px;
+            color: yellow
+        }
+
+        input {
+            width: 200px;
+        }
+
+        .input-num {
+            padding-left: 84px;
+            width: 300px;
+            height: 52px;
+            /* margin-left: 100px; */
+            border-radius: 5px;
+            border: 1px solid #6c757d;
+        }
+    }
+</style>
+</head>
+<body>
+    <div id="loader">
+        <div class="loader">
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+    <div class="site-wrapper">
+        <div class="page-wrapper ">
+            <div class="page-header sticky-header d-flex align-items-center">
+    <div class="container-xl d-flex">
+
+        <nav class="navbar content w-100 m-auto navbar-light navbar-expand-xl">
+            <a class="navbar-brand order-xl-1 order-2" href="index.html">
+                <img src="images/upload/62fa159e663ae.jpg" width="100px" alt="">
+            </a>
+
+            <button class="navbar-toggler  order-xl-2 order-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarOffcanvasLg" aria-controls="navbarOffcanvasLg">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="offcanvas offcanvas-start order-xl-2 order-1 " tabindex="-1" id="navbarOffcanvasLg" aria-labelledby="navbarOffcanvasLgLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Emergency Care Network</h5>
+                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav menubar  align-items-xl-center flex-grow-1">
+                        
+						 <li class="nav-item nav-select">
+                            <a class="nav-link menu-link d-flex flex-column" href="evr.html" role="button">
+								24x7-vER
+                                <span>24hrs service</span>
+                            </a>
+                        </li>
+						
+						<li class="nav-item nav-select ">
+                            <a class="nav-link menu-link d-flex flex-column nav-select" href="ambulances-nearby.html">
+								Ambulance
+                                <span>Find Near you</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item nav-select ">
+                            <a class="nav-link menu-link d-flex flex-column" href="blood-bank.html">
+								Blood Bank
+                                <span>Find Near you</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item nav-select ">
+                            <a class="nav-link menu-link d-flex flex-column" href="clinical-care.html">
+								Clinical Care
+                                <span>Find Near you</span>
+                            </a>
+                        </li>
+						
+						<li class="nav-item nav-select ">
+                            <a class="nav-link menu-link d-flex flex-column" href="pharma.html">
+								Drugs & Pharmacy
+                                <span>Find Near you</span>
+                            </a>
+                        </li>
+						
+                        <li class="nav-item nav-select ">
+                            <a class="nav-link menu-link d-flex flex-column"  href="tel:8003051520" role="button">
+								Emergency Care
+                                <span>Fast service</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="d-flex align-items-center login avtar-wrapper order-xl-3 order-4 dropdown ms-auto">
+                                    <ul class="navbar-nav menubar  align-items-xl-center flex-grow-1 ">
+                        <li class="nav-item dropdown ms-xl-auto">
+                            <a class="nav-link drop-link menu-link dropdown-toggle more-drop" href="javascript:void(0)" id="offcanvasNavbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">For Providers</a>
+                            <ul class="dropdown-menu u-d" aria-labelledby="offcanvasNavbarDropdown">
+                                <li><a class="dropdown-item" target="_blank" href="doctor/doctor_login.html">Login For Doctors</a></li>
+                                <li><a class="dropdown-item" href="patient-login.html">Login For Patients</a></li>
+                               
+                            </ul>
+                        </li>
+                    </ul>
+                                <div class="ms-2 cart me-xl-0 me-2 ">
+                    <a href="index.html" class="d-flex position-relative"><i class='bx bxs-cart-alt'></i>
+                        <p class="position-absolute d-flex align-items-center justify-content-center tot_cart">0</p>
+                    </a>
+                </div>
+                                       
+            </div>
+        </nav>
+    </div>
+</div>
+
+<div class="full-content">
+    <div class="content mx-auto ">
+        <div class="row g-0">
+            <div class="col-xl-5 col-md-6 ">
+                <div class="d-flex h-100 login-img px-5 py-5 align-items-center justify-content-center">
+                    <img src="assets/img/loginSvg.svg" alt="">
+                </div>
+            </div>
+            <div class="col-xl-7 col-md-6" class="">
+                <div class="m-3 p-sm-3 p-1">
+                    <div class="bg-white rounded-3 login_container mx-1 d-flex align-items-center justify-content-center flex-column">
+                        <h2 class="mb-4 mt-5 px-3 py-2" style="border-radius:5px; background-color: var(--blue); color:white;font-size:30px">Welcome</h2>
+                        <img class="login-logo" src="images/upload/62fa159e663ae.jpg">
+                        <h5 class="my-2 mb-4">Login/Register</h5>
+
+                        <form action="https://emergencycarenetwork.in/patient-login" method="post" class="pt-3 w-100">
+                            <input type="hidden">
+							<div class="w-100">
+                                <div class="d-flex flex-row mx-4 justify-content-center align-items-stretch">
+                                   
+                                    <div class="mb-4 mx-2 col-sm-12 form">
+                                        <input type="tel" class="input-num mt-5 " name="mobile" id="phone" required placeholder="">
+                                       <label class="form-text  form_label" style="font-size: 12px;">OTP will be sent to this number</label>
+									</div>
+                                </div>
+                                <div class="align-self-center btn-otp mx-3 mt-3 mb-5">
+                                    <button type="button" class="btn btn-sm btn-outline-primary " id="get_otp_btn">Get Otp</button>
+                                </div>
+                                <div class="mb-4 mx-4 d-none" id="otp_field">
+                                    <label for="" class="form-label mb-1">OTP</label>
+                                    <input type="number" class="form-control w-100" placeholder="enter otp here" style="height: 50px;" name="otp" value="" required>
+                                </div>
+                            </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<div type="button" class="email-bt">
+<a href="tel:8003051520">
+    <div class="text-call">
+        <i class="bx bxs-phone" aria-hidden="true"></i>
+        <span>Emergeny</span>
+    </div>
+</a>
+</div>
+
+
+
+<div class="footer " style="background:#23242a;">
+    <div class="content mx-auto">
+        <div class="">
+            <div class="row g-0">
+                <div class=" col-lg-3 col-md-4 col-sm-6  ">
+                </div>
+                <div class=" col-lg-9 col-md-9col-sm-9  ">
+                 
+                    <div class="mt-4">
+                        <ul class="nav mt-3 footer-nav">
+                            <li class="nav-item">
+                                <a href="show-doctors.html">Terms and Conditions</a>
+                            </li>
+							<li class="nav-item">
+                                <a href="show-doctors.html">Privecy Policy</a>
+                            </li>
+							<li class="nav-item">
+                                <a href="show-doctors.html">Faq</a>
+                            </li>
+							<li class="nav-item">
+                                <a href="show-doctors.html">Hospital Policy</a>
+                            </li>
+							<li class="nav-item">
+                                <a href="show-doctors.html">Patients Policy</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+              
+            </div>
+        </div>
+		<br>
+        <div class="d-flex">
+            <div class="mx-auto d-flex flex-column align-items-center">
+                
+                <p>Copyright &copy; 2022 Emergency Care Network,All rights reserverd </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+      </div>
+    </div>
+    <script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+	<script src="assets/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/boxicons.js"></script>
+<script src="assets/js/intlTelInput.min.js"></script>
+<script src="assets/js/jquery.timepicker.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDiNnf8BLqXCPt85hSCIyq2fImECe9nnrM" async></script>
+<script src="assets/js/otp_login.js"></script>
+<script>
+    const phoneInputField = document.querySelector("#phone");
+    const phoneInput = window.intlTelInput(phoneInputField, {
+        preferredCountries: ["in"],
+        initialCountry: "in",
+        separateDialCode: true,
+        utilsScript: "https://emergencycarenetwork.in/assets/js/utils.js",
+
+    });
+    phoneInputField.addEventListener("countrychange", function() {
+        var phone_code = $('.iti__selected-dial-code').text();
+        $('input[name=phone_code]').val(phone_code);
+    });
+</script>
+<script src="assets/js/slick.min.js"></script>
+<script type="text/javascript" src="assets_admin/js/datatables.min.js"></script>
+<script type="text/javascript" src="assets/plugins/fancybox/jquery.fancybox.min.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>

@@ -17,13 +17,10 @@ const HospiModel = db.hospital;
 
 const CreateHosp = async (req, res, next) => {
     try {
-        const {_id, hospitalType, name, email, mobile, website, mapLink , address, pincode, lat, lon,img_url,thumbNail,ratings,country,state,district,taluk,hobli,village } = req.body;
+        const {_id, hospitalType, name, contactEmail, contactNumber, website, mapLink , address, pincode, lat, lon,img_url,thumbNail,ratings,country,state,district,taluk,hobli,city } = req.body;
         let payload = {
-            hospitalType, name, email, mobile, website, mapLink , address, pincode, lat, lon,createdBy:req.decoded.user_id,img_url,thumbNail,ratings,country,state,district,taluk,hobli,village
+            hospitalType, name, contactEmail, contactNumber, website, mapLink , address, pincode, lat, lon,createdBy:req.decoded?.user_id,img_url,thumbNail,ratings,country,state,district,taluk,hobli,city
         }
-
-      
-
         if(_id){
           let checkExists =  await HospiModel.findOne({_id,isDeleted:false})
           if(!checkExists){
@@ -33,7 +30,7 @@ const CreateHosp = async (req, res, next) => {
             return FormatData(res, true, "Hospital updated successfully", updatedData)
         }else{
             let createhosp = await HospiModel.create(payload)
-            return FormatData(res, true, "Hospital created successfully", createhosp)
+            return FormatData(res, true, "Hospital created successfully!!!", createhosp)
         }
     
     } catch (error) {

@@ -11,6 +11,8 @@ module.exports = mongoose.model(
         email: { type: String, trim: true },
         mobile: { type: String, trim: true },
         password: String,
+        degree: String,
+        tag: String,
         provider: {
             type: String,
             enum: ["ECN", "GOOGLE", "APPLE"],
@@ -33,6 +35,9 @@ module.exports = mongoose.model(
         district: String,
         address: [String],
         pin_code: String,
+        created_by: {type:mongoose.Schema.Types.ObjectId,ref:"user"},
+        hospitalConn:{type:mongoose.Schema.Types.ObjectId,ref:"hospital"},
+        specilizations:[String],
         isDeleted: { type: Boolean, default: false },
        
 

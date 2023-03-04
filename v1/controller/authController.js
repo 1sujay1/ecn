@@ -8,7 +8,7 @@ const { sendOTP, reSendOTP, verifyOTP } = require("./otpController");
 const { CustResponse } = require("../../v1/utils");
 const db = require("../../models");
 const UserModel = db.user;
-const MobileOTPModel = db.mobile;
+// const MobileOTPModel = db.mobile;
 const EmailOTPModel = db.email;
 const FCMUserModel = db.fcm;
 const ResetModel = db.reset;
@@ -196,7 +196,7 @@ const SendOTPEmail = async({ email })=> {
 }
 const MobileOTPFindAndUpdate =async ({ mobile }) =>{
     try {
-        const data = await MobileOTPModel.findOneAndUpdate({ mobile }, {}, { upsert: true, new: true });
+        const data = await UserModel.findOneAndUpdate({ mobile }, {}, { upsert: true, new: true });
         if (data && data._id) {
             return { status: true, message: "OTP sent successfully", data: [] }
         }
@@ -307,7 +307,7 @@ const VerifyOTP = async (req, res, next) => {
             }
 
         } else {
-            const getResult =await FindMobileOTP({ mobile, filter: { isVerified: 1, registerStatus: 1 }});
+            const getResult =await FindMobileOTP({ mobile, filter: { mobileVerified: 1}});
 
             if (!getResult.status) {
                 return FormatData(res, false, getResult.message)
@@ -320,7 +320,7 @@ const VerifyOTP = async (req, res, next) => {
                 return FormatData(res, false, "OTP verification failed, Invalid OTP")
             }
             if (!getResult.data.isVerified) {
-                await UpdateMobileOTP({ _id: getResult.data._id, isVerified: true })
+                await UpdateMobileOTP({ _id: getResult.data._id, mobileVerified: true })
             }
             let checkExists = await UserModel.findOne({mobile})
             if(!checkExists){
@@ -339,7 +339,7 @@ const VerifyOTP = async (req, res, next) => {
 }
 const UpdateMobileOTP = async({ _id, ...rest })=> {
     try {
-        const data = await MobileOTPModel.updateOne({ _id }, rest);
+        const data = await UserModel.updateOne({ _id }, rest);
         if (data && data.modifiedCount) {
             return { status: true, message: "Updated successfully", data }
         }
@@ -351,7 +351,7 @@ const UpdateMobileOTP = async({ _id, ...rest })=> {
 }
 const FindMobileOTP = async({ mobile, filter }) =>{
     try {
-        const data = await MobileOTPModel.findOne({ mobile }, filter);
+        const data = await UserModel.findOne({ mobile }, filter);
         if (data && data._id) {
             return { status: true, message: "Mobile exists", data }
         }

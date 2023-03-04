@@ -5,7 +5,7 @@ async function sendEmailWithStatic(data) {
     try {
         let msg = {
             to: data.email,
-            from: 'no-reply@abc.in <sujaygowdag3@gmail.com>',
+            from: 'no-reply@abc.in <test3@gmail.com>',
             subject: data.templateData.subject,
         };
         if (data.templateData.text) msg.text = data.templateData.text;
@@ -35,7 +35,7 @@ async function sendEmailWithTemplateId(data) {
     try {
         let msg = {
             to: data.email,
-            from: 'no-reply@abc.in <sujaygowdag3@gmail.com>',
+            from: 'no-reply@abc.in <test3@gmail.com>',
             templateId: data.templateId,
             dynamic_template_data: data.templateData
         };

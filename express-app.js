@@ -13,6 +13,7 @@ module.exports = async (app) => {
 
     app.use(cors());
     app.use("/api/v1", routes);
+    app.use(express.static("static"));
     // app.use(function (req, res, next) {
     //     res.header("Access-Control-Allow-Origin", "*");
     //     res.header(

@@ -4,7 +4,7 @@ const cors = require('cors');
 var morgan = require("morgan");
 const chalk = require('chalk');
 const routes = require('./v1/controller/routes');
-
+const staticRoutes = require('./v1/controller/routes/staticRoute')
 
 module.exports = async (app) => {
 
@@ -13,6 +13,7 @@ module.exports = async (app) => {
 
     app.use(cors());
     app.use("/api/v1", routes);
+    app.use(staticRoutes);
     app.use(express.static("static"));
     // app.use(function (req, res, next) {
     //     res.header("Access-Control-Allow-Origin", "*");

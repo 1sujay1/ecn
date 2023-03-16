@@ -165,7 +165,9 @@ const SendOTP = async (req, res, next) => {
             // if (resp.data.type === "error") {
             //     return FormatData(res, false, resp.data.message)
             // }
-
+            if(!mobile){
+                return FormatData(res, false, `Please enter mobile number`) 
+            }
             const getResult =await MobileOTPFindAndUpdate({ mobile })
             console.log("getResult",getResult
             );
@@ -316,7 +318,7 @@ const VerifyOTP = async (req, res, next) => {
             // if (resp.data.type === "error") {
             //     return FormatData(res, false, resp.data.message)
             // }
-            if(otp!='123ABC'){
+            if(otp!='123456'){
                 return FormatData(res, false, "OTP verification failed, Invalid OTP")
             }
             if (!getResult.data.isVerified) {

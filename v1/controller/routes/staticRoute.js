@@ -3,7 +3,7 @@ const router = express.Router();
 const path = require("path");
 
 router.get("/", function (req, res) {
-    res.sendFile(path.join(__dirname + "../../../../static/admin_dashboard.html"));
+    res.sendFile(path.join(__dirname + "../../../../static/index.html"));
 });
 
 router.get("/admin", function (req, res) {

@@ -39,6 +39,8 @@ module.exports = mongoose.model(
         hospitalConn:{type:mongoose.Schema.Types.ObjectId,ref:"hospital"},
         specilizations:[String],
         isDeleted: { type: Boolean, default: false },
+        verifyCode:String
+        
        
 
     }, { timestamps: true }),

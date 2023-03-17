@@ -22,7 +22,7 @@ const StartServer = async () => {
 
     // require('./v1/utils/queue/sender.js')
     // require('./v1/utils/queue/receiver.js')
-    require('./v1/utils/init_redis.js')
+    // require('./v1/utils/init_redis.js')
 
    
 

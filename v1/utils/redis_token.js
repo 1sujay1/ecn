@@ -4,11 +4,11 @@ const redisClient = require('./init_redis.js');
 const jwtHelper = require('./jwtHelper.js');
 
 const redisAndToken = async (user_id, device_id, ip, type) => {
-    let pinged = await redisClient.ping();
+    // let pinged = await redisClient.ping();
 
-    if (!pinged || pinged !== "PONG") {
-        return REDIS_SERVER_NOT_CONNECTED;
-    }
+    // if (!pinged || pinged !== "PONG") {
+    //     return REDIS_SERVER_NOT_CONNECTED;
+    // }
     user_id=user_id.toString()
     let payload = { user_id, device_id, ip, type };
     
@@ -21,23 +21,23 @@ const redisAndToken = async (user_id, device_id, ip, type) => {
         refreshToken
     }
     console.log(tokens);
-    const redisRespExists = await redisClient.exists(user_id);
-    console.log(redisRespExists);
-    if (redisRespExists) {
-        const tokenRes = await redisClient.get(user_id);
-        console.log(redisRespExists);
-        const decodedTokens = async () => {
-            try {
-                const data = jwtHelper.verifyRefreshToken(tokenRes);
-                return data
-            } catch (error) {
-                console.log(error);
-                await redisClient.del(user_id)
-                return null;
-            }
-        }
+    // const redisRespExists = await redisClient.exists(user_id);
+    // console.log(redisRespExists);
+    // if (redisRespExists) {
+    //     const tokenRes = await redisClient.get(user_id);
+    //     console.log(redisRespExists);
+    //     const decodedTokens = async () => {
+    //         try {
+    //             const data = jwtHelper.verifyRefreshToken(tokenRes);
+    //             return data
+    //         } catch (error) {
+    //             console.log(error);
+    //             await redisClient.del(user_id)
+    //             return null;
+    //         }
+    //     }
 
-        console.log("decodedTokens", await decodedTokens());
+    //     console.log("decodedTokens", await decodedTokens());
 
         // const redisResp = await redisClient.lrange(user_id, 0, -1);
         // const decodedTokens = await Promise.all(redisResp.map(async (token) => {
@@ -66,9 +66,9 @@ const redisAndToken = async (user_id, device_id, ip, type) => {
         //     await removeRecursive(deviceTokens.length - 1)
         // }
 
-    }
+    // }
     // await redisClient.lpush(user_id, refreshToken);
-    await redisClient.set(user_id, refreshToken);
+    // await redisClient.set(user_id, refreshToken);
     return tokens;
 
 }
